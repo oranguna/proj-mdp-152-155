@@ -19,7 +19,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sshagent(credentials: [ 'deploy-server-credentials-id']) {
+                sshagent(credentials: [ 'deploy-server-credentials']) {
     sh '''
         scp -o- StrictHostkeyChecking=no ./target/web*.war ec2-user@172.31.42.171:/opt/tomcat/webapps/Root.war
                 echo 'Deploying....'
