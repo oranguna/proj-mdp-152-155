@@ -4,8 +4,11 @@ pipeline {
     }
 
     stages {
-        stage('Build') {
-            steps {
+        stage('Build and Test') {
+            steps { 
+                sh"""
+                mvn clean package
+                """
                 echo 'Building..'
             }
         }
